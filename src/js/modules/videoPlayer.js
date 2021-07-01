@@ -17,7 +17,6 @@ export default class VideoPlayer {
 	}
 
 	changeUrl() {
-		console.dir(this.url);
 		let end = this.iframeSrc.lastIndexOf('/') + 1;
 		this.iframeSrc = this.iframeSrc.slice(0, end) + this.url;
 		this.iframe.setAttribute('src', this.iframeSrc);

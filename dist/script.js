@@ -1765,6 +1765,11 @@ window.addEventListener('DOMContentLoaded', function () {
     var whyVideoPlayer = new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('.play', '.close', '.overlay', '#frame iframe');
     whyVideoPlayer.render();
   } catch (error) {}
+
+  try {
+    var horizontalSlider = new _modules_slider__WEBPACK_IMPORTED_MODULE_0__["default"]('.showup__content-slider', '.showup__prev, .showup__next', '.logo', 'X');
+    horizontalSlider.render();
+  } catch (error) {}
 });
 
 /***/ }),
@@ -1817,15 +1822,20 @@ function () {
     value: function prevSlide() {
       if (this.counter > 0) {
         if (this.direction === 'Y') {
-          this.page.style.cssText = "\n\t\t\t\ttransform: translate".concat(this.direction, "(-").concat((this.counter - 1) * parseInt(getComputedStyle(this.slides[0]).height), "px);\n\t\t\t\ttransition: transform 0.5s;\n\t\t\t\t");
+          this.page.style.cssText = "\n\t\t\t\t\ttransform: translate".concat(this.direction, "(-").concat((this.counter - 1) * parseInt(getComputedStyle(this.slides[0]).height), "px);\n\t\t\t\t\ttransition: transform 0.5s;\n\t\t\t\t");
         } else {
-          this.page.style.cssText = "\n\t\t\t\ttransform: translate".concat(this.direction, "(-").concat((this.counter - 1) * parseInt(getComputedStyle(this.slides[0]).width), "px);\n\t\t\t\ttransition: transform 0.5s;\n\t\t\t\t");
+          this.page.style.cssText = "\n\t\t\t\t\ttransform: translate".concat(this.direction, "(-").concat((this.counter - 1) * parseInt(getComputedStyle(this.slides[0]).width), "px);\n\t\t\t\t\ttransition: transform 0.5s;\n\t\t\t\t");
         }
 
         this.counter--;
       } else {
-        this.counter = this.slides.length - 1;
-        this.page.style.cssText = "\n\t\t\t\ttransform: translate".concat(this.direction, "(-").concat(this.counter * parseInt(getComputedStyle(this.slides[0]).height), "px);\n\t\t\t\ttransition: transform 0.5s;\n\t\t");
+        if (this.direction === 'Y') {
+          this.counter = this.slides.length - 1;
+          this.page.style.cssText = "\n\t\t\t\t\ttransform: translate".concat(this.direction, "(-").concat(this.counter * parseInt(getComputedStyle(this.slides[0]).height), "px);\n\t\t\t\t\ttransition: transform 0.5s;\n\t\t\t\t");
+        } else {
+          this.counter = this.slides.length;
+          this.page.style.cssText = "\n\t\t\t\t\ttransform: translate".concat(this.direction, "(-").concat((this.counter - 1) * parseInt(getComputedStyle(this.slides[0]).width) + this.counter * 24, "px);\n\t\t\t\t\ttransition: transform 0.5s;\n\t\t\t\t");
+        }
       }
     }
   }, {
@@ -1835,7 +1845,7 @@ function () {
         if (this.direction === 'Y') {
           this.page.style.cssText = "\n\t\t\t\t\ttransform: translate".concat(this.direction, "(-").concat((this.counter + 1) * parseInt(getComputedStyle(this.slides[0]).height), "px);\n\t\t\t\t\ttransition: transform 0.5s;\n\t\t\t\t");
         } else {
-          this.page.style.cssText = "\n\t\t\t\t\ttransform: translate".concat(this.direction, "(-").concat((this.counter + 1) * parseInt(getComputedStyle(this.slides[0]).width), "px);\n\t\t\t\t\ttransition: transform 0.5s;\n\t\t\t\t");
+          this.page.style.cssText = "\n\t\t\t\t\ttransform: translate".concat(this.direction, "(-").concat((this.counter + 1) * parseInt(getComputedStyle(this.slides[0]).width) + this.counter * 24, "px);\n\t\t\t\t\ttransition: transform 0.5s;\n\t\t\t\t");
         }
 
         this.counter++;
@@ -1851,11 +1861,10 @@ function () {
       this.btns.forEach(function (btn) {
         btn.addEventListener('click', function (event) {
           event.preventDefault();
-          console.log('btn');
 
-          if (btn.classList.contains('next')) {
+          if (btn.classList.contains('next') || btn.classList.contains('showup__next')) {
             _this.nextSlide();
-          } else if (btn.classList.contains('prevmodule')) {
+          } else if (btn.classList.contains('prevmodule') || btn.classList.contains('showup__prev')) {
             _this.prevSlide();
           }
         });
@@ -1924,7 +1933,6 @@ function () {
   }, {
     key: "changeUrl",
     value: function changeUrl() {
-      console.dir(this.url);
       var end = this.iframeSrc.lastIndexOf('/') + 1;
       this.iframeSrc = this.iframeSrc.slice(0, end) + this.url;
       this.iframe.setAttribute('src', this.iframeSrc);

@@ -20,23 +20,31 @@ export default class Slider {
 		if (this.counter > 0) {
 			if (this.direction === 'Y') {
 				this.page.style.cssText = `
-				transform: translate${this.direction}(-${(this.counter - 1) * parseInt(getComputedStyle(this.slides[0]).height)}px);
-				transition: transform 0.5s;
+					transform: translate${this.direction}(-${(this.counter - 1) * parseInt(getComputedStyle(this.slides[0]).height)}px);
+					transition: transform 0.5s;
 				`;
 			} else {
 				this.page.style.cssText = `
-				transform: translate${this.direction}(-${(this.counter - 1) * parseInt(getComputedStyle(this.slides[0]).width)}px);
-				transition: transform 0.5s;
+					transform: translate${this.direction}(-${(this.counter - 1) * parseInt(getComputedStyle(this.slides[0]).width)}px);
+					transition: transform 0.5s;
 				`;
 			}
 
 			this.counter--;
 		} else {
-			this.counter = this.slides.length - 1;
-			this.page.style.cssText = `
-				transform: translate${this.direction}(-${(this.counter) * parseInt(getComputedStyle(this.slides[0]).height)}px);
-				transition: transform 0.5s;
-		`;
+			if (this.direction === 'Y') {
+				this.counter = this.slides.length - 1;
+				this.page.style.cssText = `
+					transform: translate${this.direction}(-${(this.counter) * parseInt(getComputedStyle(this.slides[0]).height)}px);
+					transition: transform 0.5s;
+				`;
+			} else {
+				this.counter = this.slides.length;
+				this.page.style.cssText = `
+					transform: translate${this.direction}(-${(this.counter - 1) * parseInt(getComputedStyle(this.slides[0]).width) + (this.counter * 24)}px);
+					transition: transform 0.5s;
+				`;
+			}
 		}
 	}
 
@@ -49,7 +57,7 @@ export default class Slider {
 				`;
 			} else {
 				this.page.style.cssText = `
-					transform: translate${this.direction}(-${(this.counter + 1) * parseInt(getComputedStyle(this.slides[0]).width)}px);
+					transform: translate${this.direction}(-${(this.counter + 1) * parseInt(getComputedStyle(this.slides[0]).width) + (this.counter * 24)}px);
 					transition: transform 0.5s;
 				`;
 			}
@@ -64,11 +72,9 @@ export default class Slider {
 				btn.addEventListener('click', (event) => {
 					event.preventDefault();
 
-					console.log('btn');
-
-					if (btn.classList.contains('next')) {
+					if (btn.classList.contains('next') || btn.classList.contains('showup__next')) {
 						this.nextSlide();
-					} else if (btn.classList.contains('prevmodule')) {
+					} else if (btn.classList.contains('prevmodule') || btn.classList.contains('showup__prev')) {
 						this.prevSlide();
 					}
 				});

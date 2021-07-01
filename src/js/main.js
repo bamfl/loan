@@ -17,4 +17,8 @@ window.addEventListener('DOMContentLoaded', () => {
 		whyVideoPlayer.render();
 	} catch (error) {}
 
+	try {
+		const horizontalSlider = new Slider('.showup__content-slider', '.showup__prev, .showup__next', '.logo', 'X');
+		horizontalSlider.render();
+	} catch (error) {}
 });
