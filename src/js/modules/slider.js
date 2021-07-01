@@ -17,8 +17,6 @@ export default class Slider {
 	}
 
 	prevSlide() {
-		console.log('prevmodule');
-
 		if (this.counter > 0) {
 			if (this.direction === 'Y') {
 				this.page.style.cssText = `

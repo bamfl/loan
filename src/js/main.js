@@ -1,4 +1,5 @@
 import Slider from './modules/slider';
+import VideoPlayer from './modules/videoPlayer';
 
 window.addEventListener('DOMContentLoaded', () => {
 	try {
@@ -10,4 +11,10 @@ window.addEventListener('DOMContentLoaded', () => {
 		const moduleSlider = new Slider('.moduleapp', '.next, .prevmodule', '.logo', 'Y');
 		moduleSlider.render();
 	} catch (error) {}
+
+	try {
+		const whyVideoPlayer = new VideoPlayer('.play', '.close', '.overlay', '#frame iframe');
+		whyVideoPlayer.render();
+	} catch (error) {}
+
 });

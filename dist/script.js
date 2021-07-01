@@ -1623,6 +1623,63 @@ $({ target: 'Array', proto: true, forced: FORCED }, {
 
 /***/ }),
 
+/***/ "./node_modules/core-js/modules/es.array.slice.js":
+/*!********************************************************!*\
+  !*** ./node_modules/core-js/modules/es.array.slice.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js/internals/export.js");
+var isObject = __webpack_require__(/*! ../internals/is-object */ "./node_modules/core-js/internals/is-object.js");
+var isArray = __webpack_require__(/*! ../internals/is-array */ "./node_modules/core-js/internals/is-array.js");
+var toAbsoluteIndex = __webpack_require__(/*! ../internals/to-absolute-index */ "./node_modules/core-js/internals/to-absolute-index.js");
+var toLength = __webpack_require__(/*! ../internals/to-length */ "./node_modules/core-js/internals/to-length.js");
+var toIndexedObject = __webpack_require__(/*! ../internals/to-indexed-object */ "./node_modules/core-js/internals/to-indexed-object.js");
+var createProperty = __webpack_require__(/*! ../internals/create-property */ "./node_modules/core-js/internals/create-property.js");
+var arrayMethodHasSpeciesSupport = __webpack_require__(/*! ../internals/array-method-has-species-support */ "./node_modules/core-js/internals/array-method-has-species-support.js");
+var wellKnownSymbol = __webpack_require__(/*! ../internals/well-known-symbol */ "./node_modules/core-js/internals/well-known-symbol.js");
+
+var SPECIES = wellKnownSymbol('species');
+var nativeSlice = [].slice;
+var max = Math.max;
+
+// `Array.prototype.slice` method
+// https://tc39.github.io/ecma262/#sec-array.prototype.slice
+// fallback for not array-like ES3 strings and DOM objects
+$({ target: 'Array', proto: true, forced: !arrayMethodHasSpeciesSupport('slice') }, {
+  slice: function slice(start, end) {
+    var O = toIndexedObject(this);
+    var length = toLength(O.length);
+    var k = toAbsoluteIndex(start, length);
+    var fin = toAbsoluteIndex(end === undefined ? length : end, length);
+    // inline `ArraySpeciesCreate` for usage native `Array#slice` where it's possible
+    var Constructor, result, n;
+    if (isArray(O)) {
+      Constructor = O.constructor;
+      // cross-realm fallback
+      if (typeof Constructor == 'function' && (Constructor === Array || isArray(Constructor.prototype))) {
+        Constructor = undefined;
+      } else if (isObject(Constructor)) {
+        Constructor = Constructor[SPECIES];
+        if (Constructor === null) Constructor = undefined;
+      }
+      if (Constructor === Array || Constructor === undefined) {
+        return nativeSlice.call(O, k, fin);
+      }
+    }
+    result = new (Constructor === undefined ? Array : Constructor)(max(fin - k, 0));
+    for (n = 0; k < fin; k++, n++) if (k in O) createProperty(result, n, O[k]);
+    result.length = n;
+    return result;
+  }
+});
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/modules/web.dom-collections.for-each.js":
 /*!**********************************************************************!*\
   !*** ./node_modules/core-js/modules/web.dom-collections.for-each.js ***!
@@ -1690,6 +1747,8 @@ module.exports = g;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/slider */ "./src/js/modules/slider.js");
+/* harmony import */ var _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/videoPlayer */ "./src/js/modules/videoPlayer.js");
+
 
 window.addEventListener('DOMContentLoaded', function () {
   try {
@@ -1700,6 +1759,11 @@ window.addEventListener('DOMContentLoaded', function () {
   try {
     var moduleSlider = new _modules_slider__WEBPACK_IMPORTED_MODULE_0__["default"]('.moduleapp', '.next, .prevmodule', '.logo', 'Y');
     moduleSlider.render();
+  } catch (error) {}
+
+  try {
+    var whyVideoPlayer = new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('.play', '.close', '.overlay', '#frame iframe');
+    whyVideoPlayer.render();
   } catch (error) {}
 });
 
@@ -1751,8 +1815,6 @@ function () {
   }, {
     key: "prevSlide",
     value: function prevSlide() {
-      console.log('prevmodule');
-
       if (this.counter > 0) {
         if (this.direction === 'Y') {
           this.page.style.cssText = "\n\t\t\t\ttransform: translate".concat(this.direction, "(-").concat((this.counter - 1) * parseInt(getComputedStyle(this.slides[0]).height), "px);\n\t\t\t\ttransition: transform 0.5s;\n\t\t\t\t");
@@ -1809,6 +1871,81 @@ function () {
   }]);
 
   return Slider;
+}();
+
+
+
+/***/ }),
+
+/***/ "./src/js/modules/videoPlayer.js":
+/*!***************************************!*\
+  !*** ./src/js/modules/videoPlayer.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return VideoPlayer; });
+/* harmony import */ var core_js_modules_es_array_slice__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.slice */ "./node_modules/core-js/modules/es.array.slice.js");
+/* harmony import */ var core_js_modules_es_array_slice__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_slice__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var VideoPlayer =
+/*#__PURE__*/
+function () {
+  function VideoPlayer(openBtnSelector, closeBtnSelector, videoSelector, iframeSelector) {
+    _classCallCheck(this, VideoPlayer);
+
+    this.openBtn = document.querySelector(openBtnSelector);
+    this.closeBtn = document.querySelector(closeBtnSelector);
+    this.videoBlock = document.querySelector(videoSelector);
+    this.iframe = document.querySelector(iframeSelector);
+    this.iframeSrc = this.iframe.src;
+    this.url = this.openBtn.dataset.url;
+  }
+
+  _createClass(VideoPlayer, [{
+    key: "showPlayer",
+    value: function showPlayer() {
+      this.videoBlock.style.display = 'flex';
+    }
+  }, {
+    key: "closePlayer",
+    value: function closePlayer() {
+      this.videoBlock.style.display = 'none';
+    }
+  }, {
+    key: "changeUrl",
+    value: function changeUrl() {
+      console.dir(this.url);
+      var end = this.iframeSrc.lastIndexOf('/') + 1;
+      this.iframeSrc = this.iframeSrc.slice(0, end) + this.url;
+      this.iframe.setAttribute('src', this.iframeSrc);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this = this;
+
+      this.openBtn.addEventListener('click', function () {
+        _this.changeUrl();
+
+        _this.showPlayer();
+      });
+      this.closeBtn.addEventListener('click', function () {
+        _this.closePlayer();
+      });
+    }
+  }]);
+
+  return VideoPlayer;
 }();
 
 
