@@ -1692,8 +1692,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/slider */ "./src/js/modules/slider.js");
 
 window.addEventListener('DOMContentLoaded', function () {
-  var mainSlider = new _modules_slider__WEBPACK_IMPORTED_MODULE_0__["default"]('.page', '.next', '.logo', 'Y');
-  mainSlider.render();
+  try {
+    var mainSlider = new _modules_slider__WEBPACK_IMPORTED_MODULE_0__["default"]('.page', '.next', '.logo', 'Y');
+    mainSlider.render();
+  } catch (error) {}
+
+  try {
+    var moduleSlider = new _modules_slider__WEBPACK_IMPORTED_MODULE_0__["default"]('.moduleapp', '.next, .prevmodule', '.logo', 'Y');
+    moduleSlider.render();
+  } catch (error) {}
 });
 
 /***/ }),
@@ -1744,6 +1751,8 @@ function () {
   }, {
     key: "prevSlide",
     value: function prevSlide() {
+      console.log('prevmodule');
+
       if (this.counter > 0) {
         if (this.direction === 'Y') {
           this.page.style.cssText = "\n\t\t\t\ttransform: translate".concat(this.direction, "(-").concat((this.counter - 1) * parseInt(getComputedStyle(this.slides[0]).height), "px);\n\t\t\t\ttransition: transform 0.5s;\n\t\t\t\t");
@@ -1752,6 +1761,9 @@ function () {
         }
 
         this.counter--;
+      } else {
+        this.counter = this.slides.length - 1;
+        this.page.style.cssText = "\n\t\t\t\ttransform: translate".concat(this.direction, "(-").concat(this.counter * parseInt(getComputedStyle(this.slides[0]).height), "px);\n\t\t\t\ttransition: transform 0.5s;\n\t\t");
       }
     }
   }, {
@@ -1777,8 +1789,13 @@ function () {
       this.btns.forEach(function (btn) {
         btn.addEventListener('click', function (event) {
           event.preventDefault();
+          console.log('btn');
 
-          _this.nextSlide();
+          if (btn.classList.contains('next')) {
+            _this.nextSlide();
+          } else if (btn.classList.contains('prevmodule')) {
+            _this.prevSlide();
+          }
         });
       });
       this.logos.forEach(function (logo) {

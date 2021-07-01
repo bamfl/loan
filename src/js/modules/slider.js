@@ -17,6 +17,8 @@ export default class Slider {
 	}
 
 	prevSlide() {
+		console.log('prevmodule');
+
 		if (this.counter > 0) {
 			if (this.direction === 'Y') {
 				this.page.style.cssText = `
@@ -31,6 +33,12 @@ export default class Slider {
 			}
 
 			this.counter--;
+		} else {
+			this.counter = this.slides.length - 1;
+			this.page.style.cssText = `
+				transform: translate${this.direction}(-${(this.counter) * parseInt(getComputedStyle(this.slides[0]).height)}px);
+				transition: transform 0.5s;
+		`;
 		}
 	}
 
@@ -55,11 +63,17 @@ export default class Slider {
 
 	render() {
 		this.btns.forEach(btn => {
-			btn.addEventListener('click', (event) => {
-				event.preventDefault();
+				btn.addEventListener('click', (event) => {
+					event.preventDefault();
 
-				this.nextSlide();
-			});
+					console.log('btn');
+
+					if (btn.classList.contains('next')) {
+						this.nextSlide();
+					} else if (btn.classList.contains('prevmodule')) {
+						this.prevSlide();
+					}
+				});
 		});
 
 		this.logos.forEach(logo => {
