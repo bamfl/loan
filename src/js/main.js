@@ -1,6 +1,7 @@
 import Slider from './modules/slider';
 import VideoPlayer from './modules/videoPlayer';
 import Diff from './modules/difference';
+import Form from './modules/form';
 
 window.addEventListener('DOMContentLoaded', () => {
 	try {
@@ -36,5 +37,10 @@ window.addEventListener('DOMContentLoaded', () => {
 	try {
 		const diffTwo = new Diff('.officernew', '.officernew .officer__card-item', '.officernew .plus');
 		diffTwo.render();
+	} catch (error) {}
+
+	try {
+		const joinForm = new Form('.join__wrapper btn', '.join__wrapper .form');
+		joinForm.ready();
 	} catch (error) {}
 });
