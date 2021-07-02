@@ -1,3 +1,5 @@
+import showModal from './modal';
+
 export default class Slider {
 	constructor(page, btns, logos, direction, titlesSelector, autoplay) {
 		this.page = document.querySelector(page);
@@ -12,7 +14,7 @@ export default class Slider {
 
 	startAutoplay() {
 		if (this.autoplay) {
-			setInterval(() => this.nextSlide(), 10000);
+			setInterval(() => this.nextSlide(), 100000);
 		}
 	}
 
@@ -117,6 +119,7 @@ export default class Slider {
 		}
 
 		this.setActiveTitle();
+		showModal(this.counter);
 	}
 
 	render() {

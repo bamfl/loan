@@ -1868,6 +1868,30 @@ function () {
 
 /***/ }),
 
+/***/ "./src/js/modules/modal.js":
+/*!*********************************!*\
+  !*** ./src/js/modules/modal.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var showModal = function showModal(counter) {
+  var modal = document.querySelector('.hanson');
+
+  if (counter === 2) {
+    setTimeout(function () {
+      modal.classList.add('animated', 'fadeInUp');
+      modal.style.display = 'block';
+    }, 3000);
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (showModal);
+
+/***/ }),
+
 /***/ "./src/js/modules/slider.js":
 /*!**********************************!*\
   !*** ./src/js/modules/slider.js ***!
@@ -1882,6 +1906,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es_array_concat__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_concat__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
 /* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modal */ "./src/js/modules/modal.js");
 
 
 
@@ -1890,6 +1915,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
 
 var Slider =
 /*#__PURE__*/
@@ -1915,7 +1942,7 @@ function () {
       if (this.autoplay) {
         setInterval(function () {
           return _this.nextSlide();
-        }, 10000);
+        }, 100000);
       }
     }
   }, {
@@ -2007,6 +2034,7 @@ function () {
       }
 
       this.setActiveTitle();
+      Object(_modal__WEBPACK_IMPORTED_MODULE_2__["default"])(this.counter);
     }
   }, {
     key: "render",
