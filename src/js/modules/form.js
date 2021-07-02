@@ -10,7 +10,6 @@ export default class Form {
 			method: 'POST',
 			body: this.formData
 		})
-		.then(response => response.text())
 		.then(data => console.log(data));
 	}
 
