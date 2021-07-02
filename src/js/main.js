@@ -14,14 +14,19 @@ window.addEventListener('DOMContentLoaded', () => {
 	} catch (error) {}
 
 	try {
-		const whyVideoPlayer = new VideoPlayer('.play', '.close', '.overlay', '#frame iframe');
-		whyVideoPlayer.render();
+		const horizontalSliderOne = new Slider('.showup__content-slider', '.showup__prev, .showup__next', '.logo', 'X', '.showup__content-slider .card__title');
+		horizontalSliderOne.render();
 	} catch (error) {}
 
 	try {
-		const horizontalSlider = new Slider('.showup__content-slider', '.showup__prev, .showup__next', '.logo', 'X', '.showup__content-slider .card__title');
-		horizontalSlider.render();
+		const horizontalSliderTwo = new Slider('.modules__content-slider', '.slick-prev, .slick-next', '.logo', 'X', '.modules__content-slider .card__title', true);
+		horizontalSliderTwo.render();
 	} catch (error) {}
+
+	try {
+		const whyVideoPlayer = new VideoPlayer('.play', '.close', '.overlay', '#frame iframe');
+		whyVideoPlayer.render();
+	} catch (error) {}	
 
 	try {
 		const diffOne = new Diff('.officerold', '.officerold .officer__card-item', '.officerold .plus');
