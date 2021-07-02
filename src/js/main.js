@@ -18,7 +18,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	} catch (error) {}
 
 	try {
-		const horizontalSlider = new Slider('.showup__content-slider', '.showup__prev, .showup__next', '.logo', 'X');
+		const horizontalSlider = new Slider('.showup__content-slider', '.showup__prev, .showup__next', '.logo', 'X', '.showup__content-slider .card__title');
 		horizontalSlider.render();
 	} catch (error) {}
 });

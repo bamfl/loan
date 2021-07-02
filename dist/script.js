@@ -1767,7 +1767,7 @@ window.addEventListener('DOMContentLoaded', function () {
   } catch (error) {}
 
   try {
-    var horizontalSlider = new _modules_slider__WEBPACK_IMPORTED_MODULE_0__["default"]('.showup__content-slider', '.showup__prev, .showup__next', '.logo', 'X');
+    var horizontalSlider = new _modules_slider__WEBPACK_IMPORTED_MODULE_0__["default"]('.showup__content-slider', '.showup__prev, .showup__next', '.logo', 'X', '.showup__content-slider .card__title');
     horizontalSlider.render();
   } catch (error) {}
 });
@@ -1800,7 +1800,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 var Slider =
 /*#__PURE__*/
 function () {
-  function Slider(page, btns, logos, direction) {
+  function Slider(page, btns, logos, direction, titlesSelector) {
     _classCallCheck(this, Slider);
 
     this.page = document.querySelector(page);
@@ -1809,9 +1809,30 @@ function () {
     this.logos = document.querySelectorAll(logos);
     this.direction = direction;
     this.counter = 0;
+    this.titles = document.querySelectorAll(titlesSelector);
   }
 
   _createClass(Slider, [{
+    key: "setActiveTitle",
+    value: function setActiveTitle() {
+      var _this = this;
+
+      if (this.titles) {
+        this.titles.forEach(function (title, idx) {
+          title.style.opacity = '0.4';
+
+          if (idx === _this.counter) {
+            title.style.opacity = '1';
+            var arrows = document.querySelectorAll('.card__controls-arrow');
+            arrows.forEach(function (arrow) {
+              arrow.style.opacity = '0';
+            });
+            arrows[idx].style.opacity = '1';
+          }
+        });
+      }
+    }
+  }, {
     key: "toFirstSlide",
     value: function toFirstSlide() {
       this.counter = 0;
@@ -1824,7 +1845,7 @@ function () {
         if (this.direction === 'Y') {
           this.page.style.cssText = "\n\t\t\t\t\ttransform: translate".concat(this.direction, "(-").concat((this.counter - 1) * parseInt(getComputedStyle(this.slides[0]).height), "px);\n\t\t\t\t\ttransition: transform 0.5s;\n\t\t\t\t");
         } else {
-          this.page.style.cssText = "\n\t\t\t\t\ttransform: translate".concat(this.direction, "(-").concat((this.counter - 1) * parseInt(getComputedStyle(this.slides[0]).width), "px);\n\t\t\t\t\ttransition: transform 0.5s;\n\t\t\t\t");
+          this.page.style.cssText = "\n\t\t\t\t\ttransform: translate".concat(this.direction, "(-").concat((this.counter - 1) * parseInt(getComputedStyle(this.slides[0]).width) + this.counter * 24 - 24, "px);\n\t\t\t\t\ttransition: transform 0.5s;\n\t\t\t\t");
         }
 
         this.counter--;
@@ -1833,8 +1854,8 @@ function () {
           this.counter = this.slides.length - 1;
           this.page.style.cssText = "\n\t\t\t\t\ttransform: translate".concat(this.direction, "(-").concat(this.counter * parseInt(getComputedStyle(this.slides[0]).height), "px);\n\t\t\t\t\ttransition: transform 0.5s;\n\t\t\t\t");
         } else {
-          this.counter = this.slides.length;
-          this.page.style.cssText = "\n\t\t\t\t\ttransform: translate".concat(this.direction, "(-").concat((this.counter - 1) * parseInt(getComputedStyle(this.slides[0]).width) + this.counter * 24, "px);\n\t\t\t\t\ttransition: transform 0.5s;\n\t\t\t\t");
+          this.counter = this.slides.length - 1;
+          this.page.style.cssText = "\n\t\t\t\t\ttransform: translate".concat(this.direction, "(-").concat(this.counter * parseInt(getComputedStyle(this.slides[0]).width) + this.counter * 24 - 24, "px);\n\t\t\t\t\ttransition: transform 0.5s;\n\t\t\t\t");
         }
       }
     }
@@ -1856,16 +1877,20 @@ function () {
   }, {
     key: "render",
     value: function render() {
-      var _this = this;
+      var _this2 = this;
 
       this.btns.forEach(function (btn) {
         btn.addEventListener('click', function (event) {
           event.preventDefault();
 
           if (btn.classList.contains('next') || btn.classList.contains('showup__next')) {
-            _this.nextSlide();
+            _this2.nextSlide();
+
+            _this2.setActiveTitle();
           } else if (btn.classList.contains('prevmodule') || btn.classList.contains('showup__prev')) {
-            _this.prevSlide();
+            _this2.prevSlide();
+
+            _this2.setActiveTitle();
           }
         });
       });
@@ -1873,9 +1898,10 @@ function () {
         logo.addEventListener('click', function (event) {
           event.preventDefault();
 
-          _this.toFirstSlide();
+          _this2.toFirstSlide();
         });
       });
+      this.setActiveTitle();
     }
   }]);
 
