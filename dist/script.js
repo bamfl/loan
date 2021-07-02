@@ -1748,6 +1748,8 @@ module.exports = g;
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/slider */ "./src/js/modules/slider.js");
 /* harmony import */ var _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/videoPlayer */ "./src/js/modules/videoPlayer.js");
+/* harmony import */ var _modules_difference__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/difference */ "./src/js/modules/difference.js");
+
 
 
 window.addEventListener('DOMContentLoaded', function () {
@@ -1770,7 +1772,94 @@ window.addEventListener('DOMContentLoaded', function () {
     var horizontalSlider = new _modules_slider__WEBPACK_IMPORTED_MODULE_0__["default"]('.showup__content-slider', '.showup__prev, .showup__next', '.logo', 'X', '.showup__content-slider .card__title');
     horizontalSlider.render();
   } catch (error) {}
+
+  try {
+    var diffOne = new _modules_difference__WEBPACK_IMPORTED_MODULE_2__["default"]('.officerold', '.officerold .officer__card-item', '.officerold .plus');
+    diffOne.render();
+  } catch (error) {}
+
+  try {
+    var diffTwo = new _modules_difference__WEBPACK_IMPORTED_MODULE_2__["default"]('.officernew', '.officernew .officer__card-item', '.officernew .plus');
+    diffTwo.render();
+  } catch (error) {}
 });
+
+/***/ }),
+
+/***/ "./src/js/modules/difference.js":
+/*!**************************************!*\
+  !*** ./src/js/modules/difference.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Diff; });
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Diff =
+/*#__PURE__*/
+function () {
+  function Diff(containerSelector, cardSelector, btnSelector) {
+    _classCallCheck(this, Diff);
+
+    this.container = document.querySelector(containerSelector);
+    this.cards = document.querySelectorAll(cardSelector);
+    this.btn = document.querySelector(btnSelector);
+    this.counter = 0;
+    this.length = 0;
+  }
+
+  _createClass(Diff, [{
+    key: "hideCards",
+    value: function hideCards() {
+      var _this = this;
+
+      this.counter = 0;
+      this.cards.forEach(function (card) {
+        if (!isNaN(card.firstElementChild.innerHTML)) {
+          card.classList.add('animated', 'fadeInLeft');
+          card.style.display = 'none';
+          _this.length++;
+        }
+      });
+    }
+  }, {
+    key: "showNextCard",
+    value: function showNextCard() {
+      if (this.counter < this.length - 1) {
+        this.cards[this.counter].style.display = '';
+        this.counter++;
+      } else if (this.counter === this.length - 1) {
+        this.cards[this.counter].style.display = '';
+        this.cards[this.length].remove();
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      this.hideCards();
+      this.btn.addEventListener('click', function () {
+        _this2.showNextCard();
+      });
+    }
+  }]);
+
+  return Diff;
+}();
+
+
 
 /***/ }),
 

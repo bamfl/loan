@@ -1,5 +1,6 @@
 import Slider from './modules/slider';
 import VideoPlayer from './modules/videoPlayer';
+import Diff from './modules/difference';
 
 window.addEventListener('DOMContentLoaded', () => {
 	try {
@@ -20,5 +21,15 @@ window.addEventListener('DOMContentLoaded', () => {
 	try {
 		const horizontalSlider = new Slider('.showup__content-slider', '.showup__prev, .showup__next', '.logo', 'X', '.showup__content-slider .card__title');
 		horizontalSlider.render();
+	} catch (error) {}
+
+	try {
+		const diffOne = new Diff('.officerold', '.officerold .officer__card-item', '.officerold .plus');
+		diffOne.render();
+	} catch (error) {}
+
+	try {
+		const diffTwo = new Diff('.officernew', '.officernew .officer__card-item', '.officernew .plus');
+		diffTwo.render();
 	} catch (error) {}
 });
