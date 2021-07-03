@@ -18,6 +18,15 @@ export default class Slider {
 		}
 	}
 
+	setActiveClass() {
+		if (this.page.classList.contains('feed__slider')) {
+			this.slides.forEach(slide => {
+				slide.classList.remove('feed__item-active');
+			});
+			this.slides[this.counter].classList.add('feed__item-active');
+		}
+	}
+
 	setActiveTitle() {
 		if (this.titles) {
 			this.titles.forEach((title, idx) => {
@@ -64,6 +73,7 @@ export default class Slider {
 			transition: transform 0.5s;
 		`;
 		this.setActiveTitle();
+		this.setActiveClass();
 	}
 
 	prevSlide() {
@@ -98,6 +108,7 @@ export default class Slider {
 		}
 
 		this.setActiveTitle();
+		this.setActiveClass();
 	}
 
 	nextSlide() {
@@ -119,6 +130,7 @@ export default class Slider {
 		}
 
 		this.setActiveTitle();
+		this.setActiveClass();
 		showModal(this.counter);
 	}
 
@@ -147,5 +159,6 @@ export default class Slider {
 		});
 
 		this.setActiveTitle();
+		this.setActiveClass();
 	}
 }

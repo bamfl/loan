@@ -3428,6 +3428,11 @@ window.addEventListener('DOMContentLoaded', function () {
   } catch (error) {}
 
   try {
+    var horizontalSliderThree = new _modules_slider__WEBPACK_IMPORTED_MODULE_0__["default"]('.feed__slider', '.slick-prev, .slick-next', '.logo', 'X', '.modules__content-slider .card__title', true);
+    horizontalSliderThree.render();
+  } catch (error) {}
+
+  try {
     var whyVideoPlayer = new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('.play', '.close', '.overlay', '#frame iframe');
     whyVideoPlayer.render();
   } catch (error) {}
@@ -3742,6 +3747,16 @@ function () {
       }
     }
   }, {
+    key: "setActiveClass",
+    value: function setActiveClass() {
+      if (this.page.classList.contains('feed__slider')) {
+        this.slides.forEach(function (slide) {
+          slide.classList.remove('feed__item-active');
+        });
+        this.slides[this.counter].classList.add('feed__item-active');
+      }
+    }
+  }, {
     key: "setActiveTitle",
     value: function setActiveTitle() {
       var _this2 = this;
@@ -3790,6 +3805,7 @@ function () {
       this.counter = 0;
       this.page.style.cssText = "\n\t\t\ttransform: translate".concat(this.direction, "(0px);\n\t\t\ttransition: transform 0.5s;\n\t\t");
       this.setActiveTitle();
+      this.setActiveClass();
     }
   }, {
     key: "prevSlide",
@@ -3813,6 +3829,7 @@ function () {
       }
 
       this.setActiveTitle();
+      this.setActiveClass();
     }
   }, {
     key: "nextSlide",
@@ -3830,6 +3847,7 @@ function () {
       }
 
       this.setActiveTitle();
+      this.setActiveClass();
       Object(_modal__WEBPACK_IMPORTED_MODULE_2__["default"])(this.counter);
     }
   }, {
@@ -3857,6 +3875,7 @@ function () {
         });
       });
       this.setActiveTitle();
+      this.setActiveClass();
     }
   }]);
 

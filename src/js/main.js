@@ -25,6 +25,11 @@ window.addEventListener('DOMContentLoaded', () => {
 	} catch (error) {}
 
 	try {
+		const horizontalSliderThree = new Slider('.feed__slider', '.slick-prev, .slick-next', '.logo', 'X', '.modules__content-slider .card__title', true);
+		horizontalSliderThree.render();
+	} catch (error) {}
+
+	try {
 		const whyVideoPlayer = new VideoPlayer('.play', '.close', '.overlay', '#frame iframe');
 		whyVideoPlayer.render();
 	} catch (error) {}	
