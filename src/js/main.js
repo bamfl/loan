@@ -48,4 +48,9 @@ window.addEventListener('DOMContentLoaded', () => {
 		const joinForm = new Form('.join__wrapper .btn', '.join__wrapper .form');
 		joinForm.ready();
 	} catch (error) {}
+
+	try {
+		const scheduleForm = new Form('.schedule__form .btn', '.schedule__form .form');
+		scheduleForm.ready();
+	} catch (error) {}
 });

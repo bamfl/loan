@@ -3451,6 +3451,11 @@ window.addEventListener('DOMContentLoaded', function () {
     var joinForm = new _modules_form__WEBPACK_IMPORTED_MODULE_3__["default"]('.join__wrapper .btn', '.join__wrapper .form');
     joinForm.ready();
   } catch (error) {}
+
+  try {
+    var scheduleForm = new _modules_form__WEBPACK_IMPORTED_MODULE_3__["default"]('.schedule__form .btn', '.schedule__form .form');
+    scheduleForm.ready();
+  } catch (error) {}
 });
 
 /***/ }),
@@ -3605,41 +3610,45 @@ function () {
     value: function validateEmail() {
       var _this2 = this;
 
-      this.emailInput.addEventListener('input', function () {
-        // русские буквы
-        if (!_this2.emailInput.value.match(/[^а-яё]/ig)) {
-          _this2.emailInput.value = '';
-        }
-      });
+      if (this.emailInput) {
+        this.emailInput.addEventListener('input', function () {
+          // русские буквы
+          if (!_this2.emailInput.value.match(/[^а-яё]/ig)) {
+            _this2.emailInput.value = '';
+          }
+        });
+      }
     }
   }, {
     key: "setPhoneMask",
     value: function setPhoneMask() {
       var _this3 = this;
 
-      var events = ['input', 'focus', 'blur'];
-      events.forEach(function (event) {
-        _this3.phoneInput.addEventListener(event, function () {
-          var matrix = '+1 (___) ___ __ __',
-              i = 0,
-              def = matrix.replace(/\D/g, ''),
-              val = _this3.phoneInput.value.replace(/\D/g, '');
+      if (this.phoneInput) {
+        var events = ['input', 'focus', 'blur'];
+        events.forEach(function (event) {
+          _this3.phoneInput.addEventListener(event, function () {
+            var matrix = '+1 (___) ___ __ __',
+                i = 0,
+                def = matrix.replace(/\D/g, ''),
+                val = _this3.phoneInput.value.replace(/\D/g, '');
 
-          if (def.length >= val.length) {
-            val = def;
-          }
-
-          _this3.phoneInput.value = matrix.replace(/./g, function (a) {
-            return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? '' : a;
-          });
-
-          if (event.type === 'blur') {
-            if (_this3.phoneInput.value.length == 2) {
-              _this3.phoneInput.value = '';
+            if (def.length >= val.length) {
+              val = def;
             }
-          }
+
+            _this3.phoneInput.value = matrix.replace(/./g, function (a) {
+              return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? '' : a;
+            });
+
+            if (event.type === 'blur') {
+              if (_this3.phoneInput.value.length == 2) {
+                _this3.phoneInput.value = '';
+              }
+            }
+          });
         });
-      });
+      }
     }
   }, {
     key: "sendData",

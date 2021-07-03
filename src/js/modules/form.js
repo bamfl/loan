@@ -30,39 +30,43 @@ export default class Form {
 	}
 
 	validateEmail() {
-		this.emailInput.addEventListener('input', () => {
-			// русские буквы
-			if (!this.emailInput.value.match(/[^а-яё]/ig)) { 
-				this.emailInput.value = '';
-			}
-		});
+		if (this.emailInput) {
+			this.emailInput.addEventListener('input', () => {
+				// русские буквы
+				if (!this.emailInput.value.match(/[^а-яё]/ig)) { 
+					this.emailInput.value = '';
+				}
+			});
+		}
 	}
 
 	setPhoneMask() {
-		const events = ['input', 'focus', 'blur'];
-
-		events.forEach(event => {
-			this.phoneInput.addEventListener(event, () => {
-				let matrix = '+1 (___) ___ __ __',
-						i = 0,
-						def = matrix.replace(/\D/g, ''),
-						val = this.phoneInput.value.replace(/\D/g, '');
-		
-				if (def.length >= val.length) {
-					val = def;
-				}
-		
-				this.phoneInput.value = matrix.replace(/./g, function(a) {
-					return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? '' : a;
-				});
-		
-				if (event.type === 'blur') {
-					if (this.phoneInput.value.length == 2) {
-						this.phoneInput.value = '';
+		if (this.phoneInput) {
+			const events = ['input', 'focus', 'blur'];
+	
+			events.forEach(event => {
+				this.phoneInput.addEventListener(event, () => {
+					let matrix = '+1 (___) ___ __ __',
+							i = 0,
+							def = matrix.replace(/\D/g, ''),
+							val = this.phoneInput.value.replace(/\D/g, '');
+			
+					if (def.length >= val.length) {
+						val = def;
 					}
-				}
+			
+					this.phoneInput.value = matrix.replace(/./g, function(a) {
+						return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? '' : a;
+					});
+			
+					if (event.type === 'blur') {
+						if (this.phoneInput.value.length == 2) {
+							this.phoneInput.value = '';
+						}
+					}
+				});
 			});
-		});
+		}
 	}
 
 	sendData() {
