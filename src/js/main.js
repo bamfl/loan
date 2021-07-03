@@ -40,7 +40,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	} catch (error) {}
 
 	try {
-		const joinForm = new Form('.join__wrapper btn', '.join__wrapper .form');
+		const joinForm = new Form('.join__wrapper .btn', '.join__wrapper .form');
 		joinForm.ready();
 	} catch (error) {}
 });
