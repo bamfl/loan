@@ -1,7 +1,9 @@
 export default class Accordion {
 	constructor(btnSelector, textSelector) {
-		this.btn = document.querySelector(btnSelector);
-		this.text = document.querySelector(textSelector);
+		try {
+			this.btn = document.querySelector(btnSelector);
+			this.text = document.querySelector(textSelector);
+		} catch (error) {}		
 	}
 
 	toggleAccordion() {
@@ -15,8 +17,10 @@ export default class Accordion {
 	}
 
 	render() {
-		this.btn.addEventListener('click', () => {
-			this.toggleAccordion();
-		});
+		try {
+			this.btn.addEventListener('click', () => {
+				this.toggleAccordion();
+			});	
+		} catch (error) {}
 	}
 }

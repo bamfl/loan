@@ -1,10 +1,12 @@
 export default class Form {
 	constructor(btnSelector, formSelector) {
-		this.btn = document.querySelector(btnSelector);
-		this.form = document.querySelector(formSelector);
-		this.emailInput = this.form.querySelector('input[type="email"]');
-		this.phoneInput = this.form.querySelector('input[name="phone"]');
-		this.formData = {};
+		try {
+			this.btn = document.querySelector(btnSelector);
+			this.form = document.querySelector(formSelector);
+			this.emailInput = this.form.querySelector('input[type="email"]');
+			this.phoneInput = this.form.querySelector('input[name="phone"]');
+			this.formData = {};	
+		} catch (error) {}
 	}
 
 	async createRequest() {
@@ -84,6 +86,9 @@ export default class Form {
 	}
 
 	ready() {
-		this.sendData();
+		try {
+			this.sendData();
+			
+		} catch (error) {}
 	}
 }

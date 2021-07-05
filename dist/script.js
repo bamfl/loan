@@ -4179,175 +4179,40 @@ __webpack_require__.r(__webpack_exports__);
 
 
 window.addEventListener('DOMContentLoaded', function () {
-  try {
-    var mainSlider = new _modules_slider__WEBPACK_IMPORTED_MODULE_0__["default"]('.page', '.next', '.logo', 'Y');
-    mainSlider.render();
-  } catch (error) {}
-
-  try {
-    var moduleSlider = new _modules_slider__WEBPACK_IMPORTED_MODULE_0__["default"]('.moduleapp', '.next, .prevmodule', '.logo', 'Y');
-    moduleSlider.render();
-  } catch (error) {}
-
-  try {
-    var horizontalSliderOne = new _modules_slider__WEBPACK_IMPORTED_MODULE_0__["default"]('.showup__content-slider', '.showup__prev, .showup__next', '.logo', 'X', '.showup__content-slider .card__title');
-    horizontalSliderOne.render();
-  } catch (error) {}
-
-  try {
-    var horizontalSliderTwo = new _modules_slider__WEBPACK_IMPORTED_MODULE_0__["default"]('.modules__content-slider', '.slick-prev, .slick-next', '.logo', 'X', '.modules__content-slider .card__title', true);
-    horizontalSliderTwo.render();
-  } catch (error) {}
-
-  try {
-    var horizontalSliderThree = new _modules_slider__WEBPACK_IMPORTED_MODULE_0__["default"]('.feed__slider', '.slick-prev, .slick-next', '.logo', 'X', '.modules__content-slider .card__title', true);
-    horizontalSliderThree.render();
-  } catch (error) {}
-
-  try {
-    var whyVideoPlayer = new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('.page .play', '.close', '.overlay', '#frame iframe');
-    whyVideoPlayer.render();
-  } catch (error) {}
-
-  try {
-    var showupVideoPlayerModule1 = new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module1 .module__video-item_1 .play__circle', '.close', '.overlay', '#frame iframe');
-    showupVideoPlayerModule1.render();
-  } catch (error) {}
-
-  try {
-    var evolveVideoPlayerModule1 = new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module1 .module__video-item_2 .play__circle', '.close', '.overlay', '#frame iframe');
-    evolveVideoPlayerModule1.render();
-  } catch (error) {}
-
-  try {
-    var showupVideoPlayerModule2 = new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module2 .module__video-item_3 .play__circle', '.close', '.overlay', '#frame iframe');
-    showupVideoPlayerModule2.render();
-  } catch (error) {}
-
-  try {
-    var evolveVideoPlayerModule2 = new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module2 .module__video-item_4 .play__circle', '.close', '.overlay', '#frame iframe');
-    evolveVideoPlayerModule2.render();
-  } catch (error) {}
-
-  try {
-    var showupVideoPlayerModule3 = new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module3 .module__video-item_1 .play__circle', '.close', '.overlay', '#frame iframe');
-    showupVideoPlayerModule3.render();
-  } catch (error) {}
-
-  try {
-    var evolveVideoPlayerModule3 = new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module3 .module__video-item_2 .play__circle', '.close', '.overlay', '#frame iframe');
-    evolveVideoPlayerModule3.render();
-  } catch (error) {}
-
-  try {
-    var showupVideoPlayerModule4 = new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module4 .module__video-item_3 .play__circle', '.close', '.overlay', '#frame iframe');
-    showupVideoPlayerModule4.render();
-  } catch (error) {}
-
-  try {
-    var evolveVideoPlayerModule4 = new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module4 .module__video-item_4 .play__circle', '.close', '.overlay', '#frame iframe');
-    evolveVideoPlayerModule4.render();
-  } catch (error) {}
-
-  try {
-    var showupVideoPlayerModule5 = new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module5 .module__video-item_1 .play__circle', '.close', '.overlay', '#frame iframe');
-    showupVideoPlayerModule5.render();
-  } catch (error) {}
-
-  try {
-    var evolveVideoPlayerModule5 = new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module5 .module__video-item_2 .play__circle', '.close', '.overlay', '#frame iframe');
-    evolveVideoPlayerModule5.render();
-  } catch (error) {}
-
-  try {
-    var showupVideoPlayerModule6 = new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module6 .module__video-item_3 .play__circle', '.close', '.overlay', '#frame iframe');
-    showupVideoPlayerModule6.render();
-  } catch (error) {}
-
-  try {
-    var evolveVideoPlayerModule6 = new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module4 .module__video-item_4 .play__circle', '.close', '.overlay', '#frame iframe');
-    evolveVideoPlayerModule6.render();
-  } catch (error) {}
-
-  try {
-    var showupVideoPlayerModule7 = new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module7 .module__video-item_1 .play__circle', '.close', '.overlay', '#frame iframe');
-    showupVideoPlayerModule7.render();
-  } catch (error) {}
-
-  try {
-    var evolveVideoPlayerModule7 = new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module7 .module__video-item_2 .play__circle', '.close', '.overlay', '#frame iframe');
-    evolveVideoPlayerModule7.render();
-  } catch (error) {}
-
-  try {
-    var showupVideoPlayerModule8 = new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module8 .module__video-item_3 .play__circle', '.close', '.overlay', '#frame iframe');
-    showupVideoPlayerModule8.render();
-  } catch (error) {}
-
-  try {
-    var evolveVideoPlayerModule8 = new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module8 .module__video-item_4 .play__circle', '.close', '.overlay', '#frame iframe');
-    evolveVideoPlayerModule8.render();
-  } catch (error) {}
-
-  try {
-    var diffOne = new _modules_difference__WEBPACK_IMPORTED_MODULE_2__["default"]('.officerold', '.officerold .officer__card-item', '.officerold .plus');
-    diffOne.render();
-  } catch (error) {}
-
-  try {
-    var diffTwo = new _modules_difference__WEBPACK_IMPORTED_MODULE_2__["default"]('.officernew', '.officernew .officer__card-item', '.officernew .plus');
-    diffTwo.render();
-  } catch (error) {}
-
-  try {
-    var joinForm = new _modules_form__WEBPACK_IMPORTED_MODULE_3__["default"]('.join__wrapper .btn', '.join__wrapper .form');
-    joinForm.ready();
-  } catch (error) {}
-
-  try {
-    var scheduleForm = new _modules_form__WEBPACK_IMPORTED_MODULE_3__["default"]('.schedule__form .btn', '.schedule__form .form');
-    scheduleForm.ready();
-  } catch (error) {}
-
-  try {
-    var accordionModule1 = new _modules_accordion__WEBPACK_IMPORTED_MODULE_4__["default"]('#module1 .module__info-show', '#module1 .msg');
-    accordionModule1.render();
-  } catch (error) {}
-
-  try {
-    var accordionModule2 = new _modules_accordion__WEBPACK_IMPORTED_MODULE_4__["default"]('#module2 .module__info-show', '#module2 .msg');
-    accordionModule2.render();
-  } catch (error) {}
-
-  try {
-    var accordionModule3 = new _modules_accordion__WEBPACK_IMPORTED_MODULE_4__["default"]('#module3 .module__info-show', '#module3 .msg');
-    accordionModule3.render();
-  } catch (error) {}
-
-  try {
-    var accordionModule4 = new _modules_accordion__WEBPACK_IMPORTED_MODULE_4__["default"]('#module4 .module__info-show', '#module4 .msg');
-    accordionModule4.render();
-  } catch (error) {}
-
-  try {
-    var accordionModule5 = new _modules_accordion__WEBPACK_IMPORTED_MODULE_4__["default"]('#module5 .module__info-show', '#module5 .msg');
-    accordionModule5.render();
-  } catch (error) {}
-
-  try {
-    var accordionModule6 = new _modules_accordion__WEBPACK_IMPORTED_MODULE_4__["default"]('#module6 .module__info-show', '#module6 .msg');
-    accordionModule6.render();
-  } catch (error) {}
-
-  try {
-    var accordionModule7 = new _modules_accordion__WEBPACK_IMPORTED_MODULE_4__["default"]('#module7 .module__info-show', '#module7 .msg');
-    accordionModule7.render();
-  } catch (error) {}
-
-  try {
-    var accordionModule8 = new _modules_accordion__WEBPACK_IMPORTED_MODULE_4__["default"]('#module8 .module__info-show', '#module8 .msg');
-    accordionModule8.render();
-  } catch (error) {}
+  new _modules_slider__WEBPACK_IMPORTED_MODULE_0__["default"]('.page', '.next', '.logo', 'Y').render();
+  new _modules_slider__WEBPACK_IMPORTED_MODULE_0__["default"]('.moduleapp', '.next, .prevmodule', '.logo', 'Y').render();
+  new _modules_slider__WEBPACK_IMPORTED_MODULE_0__["default"]('.showup__content-slider', '.showup__prev, .showup__next', '.logo', 'X', '.showup__content-slider .card__title').render();
+  new _modules_slider__WEBPACK_IMPORTED_MODULE_0__["default"]('.modules__content-slider', '.slick-prev, .slick-next', '.logo', 'X', '.modules__content-slider .card__title', true).render();
+  new _modules_slider__WEBPACK_IMPORTED_MODULE_0__["default"]('.feed__slider', '.slick-prev, .slick-next', '.logo', 'X', '.modules__content-slider .card__title', true).render();
+  new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('.page .play', '.close', '.overlay', '#frame iframe').render();
+  new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module1 .module__video-item_1 .play__circle', '.close', '.overlay', '#frame iframe').render();
+  new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module1 .module__video-item_2 .play__circle', '.close', '.overlay', '#frame iframe').render();
+  new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module2 .module__video-item_3 .play__circle', '.close', '.overlay', '#frame iframe').render();
+  new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module2 .module__video-item_4 .play__circle', '.close', '.overlay', '#frame iframe').render();
+  new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module3 .module__video-item_1 .play__circle', '.close', '.overlay', '#frame iframe').render();
+  new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module3 .module__video-item_2 .play__circle', '.close', '.overlay', '#frame iframe').render();
+  new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module4 .module__video-item_3 .play__circle', '.close', '.overlay', '#frame iframe').render();
+  new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module4 .module__video-item_4 .play__circle', '.close', '.overlay', '#frame iframe').render();
+  new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module5 .module__video-item_1 .play__circle', '.close', '.overlay', '#frame iframe').render();
+  new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module5 .module__video-item_2 .play__circle', '.close', '.overlay', '#frame iframe').render();
+  new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module6 .module__video-item_3 .play__circle', '.close', '.overlay', '#frame iframe').render();
+  new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module4 .module__video-item_4 .play__circle', '.close', '.overlay', '#frame iframe').render();
+  new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module7 .module__video-item_1 .play__circle', '.close', '.overlay', '#frame iframe').render();
+  new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module7 .module__video-item_2 .play__circle', '.close', '.overlay', '#frame iframe').render();
+  new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module8 .module__video-item_3 .play__circle', '.close', '.overlay', '#frame iframe').render();
+  new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module8 .module__video-item_4 .play__circle', '.close', '.overlay', '#frame iframe').render();
+  new _modules_difference__WEBPACK_IMPORTED_MODULE_2__["default"]('.officerold', '.officerold .officer__card-item', '.officerold .plus').render();
+  new _modules_difference__WEBPACK_IMPORTED_MODULE_2__["default"]('.officernew', '.officernew .officer__card-item', '.officernew .plus').render();
+  new _modules_form__WEBPACK_IMPORTED_MODULE_3__["default"]('.join__wrapper .btn', '.join__wrapper .form').ready();
+  new _modules_form__WEBPACK_IMPORTED_MODULE_3__["default"]('.schedule__form .btn', '.schedule__form .form').ready();
+  new _modules_accordion__WEBPACK_IMPORTED_MODULE_4__["default"]('#module1 .module__info-show', '#module1 .msg').render();
+  new _modules_accordion__WEBPACK_IMPORTED_MODULE_4__["default"]('#module2 .module__info-show', '#module2 .msg').render();
+  new _modules_accordion__WEBPACK_IMPORTED_MODULE_4__["default"]('#module3 .module__info-show', '#module3 .msg').render();
+  new _modules_accordion__WEBPACK_IMPORTED_MODULE_4__["default"]('#module4 .module__info-show', '#module4 .msg').render();
+  new _modules_accordion__WEBPACK_IMPORTED_MODULE_4__["default"]('#module5 .module__info-show', '#module5 .msg').render();
+  new _modules_accordion__WEBPACK_IMPORTED_MODULE_4__["default"]('#module6 .module__info-show', '#module6 .msg').render();
+  new _modules_accordion__WEBPACK_IMPORTED_MODULE_4__["default"]('#module7 .module__info-show', '#module7 .msg').render();
+  new _modules_accordion__WEBPACK_IMPORTED_MODULE_4__["default"]('#module8 .module__info-show', '#module8 .msg').render();
 });
 
 /***/ }),
@@ -4374,8 +4239,10 @@ function () {
   function Accordion(btnSelector, textSelector) {
     _classCallCheck(this, Accordion);
 
-    this.btn = document.querySelector(btnSelector);
-    this.text = document.querySelector(textSelector);
+    try {
+      this.btn = document.querySelector(btnSelector);
+      this.text = document.querySelector(textSelector);
+    } catch (error) {}
   }
 
   _createClass(Accordion, [{
@@ -4394,9 +4261,11 @@ function () {
     value: function render() {
       var _this = this;
 
-      this.btn.addEventListener('click', function () {
-        _this.toggleAccordion();
-      });
+      try {
+        this.btn.addEventListener('click', function () {
+          _this.toggleAccordion();
+        });
+      } catch (error) {}
     }
   }]);
 
@@ -4433,11 +4302,13 @@ function () {
   function Diff(containerSelector, cardSelector, btnSelector) {
     _classCallCheck(this, Diff);
 
-    this.container = document.querySelector(containerSelector);
-    this.cards = document.querySelectorAll(cardSelector);
-    this.btn = document.querySelector(btnSelector);
-    this.counter = 0;
-    this.length = 0;
+    try {
+      this.container = document.querySelector(containerSelector);
+      this.cards = document.querySelectorAll(cardSelector);
+      this.btn = document.querySelector(btnSelector);
+      this.counter = 0;
+      this.length = 0;
+    } catch (error) {}
   }
 
   _createClass(Diff, [{
@@ -4470,10 +4341,12 @@ function () {
     value: function render() {
       var _this2 = this;
 
-      this.hideCards();
-      this.btn.addEventListener('click', function () {
-        _this2.showNextCard();
-      });
+      try {
+        this.hideCards();
+        this.btn.addEventListener('click', function () {
+          _this2.showNextCard();
+        });
+      } catch (error) {}
     }
   }]);
 
@@ -4525,11 +4398,13 @@ function () {
   function Form(btnSelector, formSelector) {
     _classCallCheck(this, Form);
 
-    this.btn = document.querySelector(btnSelector);
-    this.form = document.querySelector(formSelector);
-    this.emailInput = this.form.querySelector('input[type="email"]');
-    this.phoneInput = this.form.querySelector('input[name="phone"]');
-    this.formData = {};
+    try {
+      this.btn = document.querySelector(btnSelector);
+      this.form = document.querySelector(formSelector);
+      this.emailInput = this.form.querySelector('input[type="email"]');
+      this.phoneInput = this.form.querySelector('input[name="phone"]');
+      this.formData = {};
+    } catch (error) {}
   }
 
   _createClass(Form, [{
@@ -4637,7 +4512,9 @@ function () {
   }, {
     key: "ready",
     value: function ready() {
-      this.sendData();
+      try {
+        this.sendData();
+      } catch (error) {}
     }
   }]);
 
@@ -4704,14 +4581,16 @@ function () {
   function Slider(page, btns, logos, direction, titlesSelector, autoplay) {
     _classCallCheck(this, Slider);
 
-    this.page = document.querySelector(page);
-    this.slides = this.page.children;
-    this.btns = document.querySelectorAll(btns);
-    this.logos = document.querySelectorAll(logos);
-    this.direction = direction;
-    this.counter = 0;
-    this.titles = document.querySelectorAll(titlesSelector);
-    this.autoplay = autoplay || false;
+    try {
+      this.page = document.querySelector(page);
+      this.slides = this.page.children;
+      this.btns = document.querySelectorAll(btns);
+      this.logos = document.querySelectorAll(logos);
+      this.direction = direction;
+      this.counter = 0;
+      this.titles = document.querySelectorAll(titlesSelector);
+      this.autoplay = autoplay || false;
+    } catch (error) {}
   }
 
   _createClass(Slider, [{
@@ -4834,27 +4713,29 @@ function () {
     value: function render() {
       var _this3 = this;
 
-      this.startAutoplay();
-      this.btns.forEach(function (btn) {
-        btn.addEventListener('click', function (event) {
-          event.preventDefault();
+      try {
+        this.startAutoplay();
+        this.btns.forEach(function (btn) {
+          btn.addEventListener('click', function (event) {
+            event.preventDefault();
 
-          if (btn.classList.contains('next') || btn.classList.contains('showup__next') || btn.classList.contains('slick-next')) {
-            _this3.nextSlide();
-          } else if (btn.classList.contains('prevmodule') || btn.classList.contains('showup__prev') || btn.classList.contains('slick-prev')) {
-            _this3.prevSlide();
-          }
+            if (btn.classList.contains('next') || btn.classList.contains('showup__next') || btn.classList.contains('slick-next')) {
+              _this3.nextSlide();
+            } else if (btn.classList.contains('prevmodule') || btn.classList.contains('showup__prev') || btn.classList.contains('slick-prev')) {
+              _this3.prevSlide();
+            }
+          });
         });
-      });
-      this.logos.forEach(function (logo) {
-        logo.addEventListener('click', function (event) {
-          event.preventDefault();
+        this.logos.forEach(function (logo) {
+          logo.addEventListener('click', function (event) {
+            event.preventDefault();
 
-          _this3.toFirstSlide();
+            _this3.toFirstSlide();
+          });
         });
-      });
-      this.setActiveTitle();
-      this.setActiveClass();
+        this.setActiveTitle();
+        this.setActiveClass();
+      } catch (error) {}
     }
   }]);
 
@@ -4894,13 +4775,15 @@ function () {
   function VideoPlayer(openBtnSelector, closeBtnSelector, videoSelector, iframeSelector) {
     _classCallCheck(this, VideoPlayer);
 
-    this.openBtn = document.querySelector(openBtnSelector);
-    this.closeBtn = document.querySelector(closeBtnSelector);
-    this.videoBlock = document.querySelector(videoSelector);
-    this.iframe = document.querySelector(iframeSelector);
-    this.iframeSrc = this.iframe.src;
-    this.url = this.openBtn.dataset.url || this.openBtn.parentElement.dataset.url;
-    this.isClosedNextVideo = true;
+    try {
+      this.openBtn = document.querySelector(openBtnSelector);
+      this.closeBtn = document.querySelector(closeBtnSelector);
+      this.videoBlock = document.querySelector(videoSelector);
+      this.iframe = document.querySelector(iframeSelector);
+      this.iframeSrc = this.iframe.src;
+      this.url = this.openBtn.dataset.url || this.openBtn.parentElement.dataset.url;
+      this.isClosedNextVideo = true;
+    } catch (error) {}
   }
 
   _createClass(VideoPlayer, [{
@@ -4949,12 +4832,14 @@ function () {
     value: function render() {
       var _this = this;
 
-      this.openBtn.addEventListener('click', function () {
-        _this.showPlayer();
-      });
-      this.closeBtn.addEventListener('click', function () {
-        _this.closePlayer();
-      });
+      try {
+        this.openBtn.addEventListener('click', function () {
+          _this.showPlayer();
+        });
+        this.closeBtn.addEventListener('click', function () {
+          _this.closePlayer();
+        });
+      } catch (error) {}
     }
   }]);
 

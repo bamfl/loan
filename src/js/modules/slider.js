@@ -2,14 +2,16 @@ import showModal from './modal';
 
 export default class Slider {
 	constructor(page, btns, logos, direction, titlesSelector, autoplay) {
-		this.page = document.querySelector(page);
-		this.slides = this.page.children;
-		this.btns = document.querySelectorAll(btns);
-		this.logos = document.querySelectorAll(logos);
-		this.direction = direction;
-		this.counter = 0;
-		this.titles = document.querySelectorAll(titlesSelector);
-		this.autoplay = autoplay || false;
+		try {
+			this.page = document.querySelector(page);
+			this.slides = this.page.children;
+			this.btns = document.querySelectorAll(btns);
+			this.logos = document.querySelectorAll(logos);
+			this.direction = direction;
+			this.counter = 0;
+			this.titles = document.querySelectorAll(titlesSelector);
+			this.autoplay = autoplay || false;
+		} catch (error) {}		
 	}
 
 	startAutoplay() {
@@ -135,30 +137,32 @@ export default class Slider {
 	}
 
 	render() {
-		this.startAutoplay();
+		try {
+			this.startAutoplay();
 
-		this.btns.forEach(btn => {
-				btn.addEventListener('click', (event) => {
-					event.preventDefault();
-
-					if (btn.classList.contains('next') || btn.classList.contains('showup__next') || btn.classList.contains('slick-next')) {
-						this.nextSlide();
-
-					} else if (btn.classList.contains('prevmodule') || btn.classList.contains('showup__prev') || btn.classList.contains('slick-prev')) {
-						this.prevSlide();
-					}
-				});
-		});
-
-		this.logos.forEach(logo => {
-			logo.addEventListener('click', (event) => {
-				event.preventDefault();
+			this.btns.forEach(btn => {
+					btn.addEventListener('click', (event) => {
+						event.preventDefault();
 	
-				this.toFirstSlide();
+						if (btn.classList.contains('next') || btn.classList.contains('showup__next') || btn.classList.contains('slick-next')) {
+							this.nextSlide();
+	
+						} else if (btn.classList.contains('prevmodule') || btn.classList.contains('showup__prev') || btn.classList.contains('slick-prev')) {
+							this.prevSlide();
+						}
+					});
 			});
-		});
-
-		this.setActiveTitle();
-		this.setActiveClass();
+	
+			this.logos.forEach(logo => {
+				logo.addEventListener('click', (event) => {
+					event.preventDefault();
+		
+					this.toFirstSlide();
+				});
+			});
+	
+			this.setActiveTitle();
+			this.setActiveClass();
+		} catch (error) {}
 	}
 }
