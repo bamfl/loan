@@ -4174,6 +4174,7 @@ function () {
     key: "closePlayer",
     value: function closePlayer() {
       this.videoBlock.style.display = 'none';
+      this.changeUrl();
     }
   }, {
     key: "changeUrl",

@@ -43,6 +43,7 @@ export default class VideoPlayer {
 
 	closePlayer() {
 		this.videoBlock.style.display = 'none';
+		this.changeUrl();
 	}
 
 	changeUrl() {
