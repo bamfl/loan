@@ -7,26 +7,13 @@ export default class Form {
 		this.formData = {};
 	}
 
-	createRequest() {
-		fetch('./assets/server.php', {
+	async createRequest() {
+		const request = await	fetch('./assets/server.php', {
 			method: 'POST',
 			body: this.formData
-		})
-		.then(data => {
-			console.log(data);
-			this.btn.innerHTML = 'Succsess!';
-			this.btn.style.backgroundColor = '#9ec73d';
-		})
-		.catch(error => {
-			console.log(error);
-			this.btn.innerHTML = 'Error';
-			this.btn.style.backgroundColor = '#d52b1e';
-		})
-		.finally(setTimeout(() => {
-			this.form.reset();
-			this.btn.innerHTML = 'Send';
-			this.btn.style.backgroundColor = '#000';
-		}, 5000));
+		});
+
+		return await request.text();
 	}
 
 	validateEmail() {
@@ -77,7 +64,22 @@ export default class Form {
 			event.preventDefault();
 
 			this.formData = new FormData(this.form);
-			this.createRequest();
+			this.createRequest()
+			.then(data => {
+				console.log(data);
+				this.btn.innerHTML = 'Success!';
+				this.btn.style.backgroundColor = '#9ec73d';
+			})
+			.catch(error => {
+				console.log(error);
+				this.btn.innerHTML = 'Error';
+				this.btn.style.backgroundColor = '#d52b1e';
+			})
+			.finally(setTimeout(() => {
+				this.form.reset();
+				this.btn.innerHTML = 'Send';
+				this.btn.style.backgroundColor = '#000';
+			}, 5000));
 		});
 	}
 
