@@ -20,7 +20,7 @@ export default class Form {
 		if (this.emailInput) {
 			this.emailInput.addEventListener('input', () => {
 				// русские буквы
-				if (!this.emailInput.value.match(/[^а-яё]/ig)) { 
+				if (!this.emailInput.value.match(/[^а-яё]/ig)) { // альтернатива: (this.emailInput.value.match(/[^a-z 0-9 @ \.]/ig))
 					this.emailInput.value = '';
 				}
 			});

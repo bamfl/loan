@@ -4570,6 +4570,7 @@ function () {
         this.emailInput.addEventListener('input', function () {
           // русские буквы
           if (!_this.emailInput.value.match(/[^а-яё]/ig)) {
+            // альтернатива: (this.emailInput.value.match(/[^a-z 0-9 @ \.]/ig))
             _this.emailInput.value = '';
           }
         });
