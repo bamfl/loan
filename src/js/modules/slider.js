@@ -133,7 +133,9 @@ export default class Slider {
 
 		this.setActiveTitle();
 		this.setActiveClass();
-		showModal(this.counter);
+		try {
+			showModal(this.counter);			
+		} catch (error) {}
 	}
 
 	render() {

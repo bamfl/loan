@@ -16,38 +16,29 @@ window.addEventListener('DOMContentLoaded', () => {
 	new Slider('.feed__slider', '.slick-prev, .slick-next', '.logo', 'X', '.modules__content-slider .card__title', true).render();
 
 	new VideoPlayer('.page .play', '.close', '.overlay', '#frame iframe').render();
-	
-	new VideoPlayer('#module1 .module__video-item_1 .play__circle', '.close', '.overlay', '#frame iframe').render();
 
-	new VideoPlayer('#module1 .module__video-item_2 .play__circle', '.close', '.overlay', '#frame iframe').render();
+	const modulesVideoSelectors = [
+		'#module1 .module__video-item_1 .play__circle',
+		'#module1 .module__video-item_2 .play__circle',
+		'#module2 .module__video-item_3 .play__circle',
+		'#module2 .module__video-item_4 .play__circle',
+		'#module3 .module__video-item_1 .play__circle',
+		'#module3 .module__video-item_2 .play__circle',
+		'#module4 .module__video-item_3 .play__circle',
+		'#module4 .module__video-item_4 .play__circle',
+		'#module5 .module__video-item_1 .play__circle',
+		'#module5 .module__video-item_2 .play__circle',
+		'#module6 .module__video-item_3 .play__circle',
+		'#module6 .module__video-item_4 .play__circle',
+		'#module7 .module__video-item_1 .play__circle',
+		'#module7 .module__video-item_2 .play__circle',
+		'#module8 .module__video-item_3 .play__circle',
+		'#module8 .module__video-item_4 .play__circle'
+	];
 
-	new VideoPlayer('#module2 .module__video-item_3 .play__circle', '.close', '.overlay', '#frame iframe').render();
-
-	new VideoPlayer('#module2 .module__video-item_4 .play__circle', '.close', '.overlay', '#frame iframe').render();
-		
-	new VideoPlayer('#module3 .module__video-item_1 .play__circle', '.close', '.overlay', '#frame iframe').render();
-
-	new VideoPlayer('#module3 .module__video-item_2 .play__circle', '.close', '.overlay', '#frame iframe').render();
-
-	new VideoPlayer('#module4 .module__video-item_3 .play__circle', '.close', '.overlay', '#frame iframe').render();
-
-	new VideoPlayer('#module4 .module__video-item_4 .play__circle', '.close', '.overlay', '#frame iframe').render();
-
-	new VideoPlayer('#module5 .module__video-item_1 .play__circle', '.close', '.overlay', '#frame iframe').render();
-
-	new VideoPlayer('#module5 .module__video-item_2 .play__circle', '.close', '.overlay', '#frame iframe').render();
-	
-	new VideoPlayer('#module6 .module__video-item_3 .play__circle', '.close', '.overlay', '#frame iframe').render();
-
-	new VideoPlayer('#module4 .module__video-item_4 .play__circle', '.close', '.overlay', '#frame iframe').render();
-	
-	new VideoPlayer('#module7 .module__video-item_1 .play__circle', '.close', '.overlay', '#frame iframe').render();
-
-	new VideoPlayer('#module7 .module__video-item_2 .play__circle', '.close', '.overlay', '#frame iframe').render();
-		
-	new VideoPlayer('#module8 .module__video-item_3 .play__circle', '.close', '.overlay', '#frame iframe').render();
-
-	new VideoPlayer('#module8 .module__video-item_4 .play__circle', '.close', '.overlay', '#frame iframe').render();
+	modulesVideoSelectors.forEach(moduleSelector => {
+		new VideoPlayer(moduleSelector, '.close', '.overlay', '#frame iframe').render();
+	});
 
 	new Diff('.officerold', '.officerold .officer__card-item', '.officerold .plus').render();
 
@@ -57,19 +48,18 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	new Form('.schedule__form .btn', '.schedule__form .form').ready();
 
-	new Accordion('#module1 .module__info-show', '#module1 .msg').render();
+	const accordionsModuleSelectors = [
+		'#module1 .module__info-show',
+		'#module2 .module__info-show',
+		'#module3 .module__info-show',
+		'#module4 .module__info-show',
+		'#module5 .module__info-show',
+		'#module6 .module__info-show',
+		'#module7 .module__info-show',
+		'#module8 .module__info-show'
+	];
 
-	new Accordion('#module2 .module__info-show', '#module2 .msg').render();
-
-	new Accordion('#module3 .module__info-show', '#module3 .msg').render();
-
-	new Accordion('#module4 .module__info-show', '#module4 .msg').render();
-
-	new Accordion('#module5 .module__info-show', '#module5 .msg').render();
-
-	new Accordion('#module6 .module__info-show', '#module6 .msg').render();
-
-	new Accordion('#module7 .module__info-show', '#module7 .msg').render();
-
-	new Accordion('#module8 .module__info-show', '#module8 .msg').render();
+	accordionsModuleSelectors.forEach((accordionSelector, idx) => {
+		new Accordion(accordionSelector, `#module${idx + 1} .msg`).render();
+	});
 });

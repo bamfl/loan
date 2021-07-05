@@ -4185,34 +4185,18 @@ window.addEventListener('DOMContentLoaded', function () {
   new _modules_slider__WEBPACK_IMPORTED_MODULE_0__["default"]('.modules__content-slider', '.slick-prev, .slick-next', '.logo', 'X', '.modules__content-slider .card__title', true).render();
   new _modules_slider__WEBPACK_IMPORTED_MODULE_0__["default"]('.feed__slider', '.slick-prev, .slick-next', '.logo', 'X', '.modules__content-slider .card__title', true).render();
   new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('.page .play', '.close', '.overlay', '#frame iframe').render();
-  new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module1 .module__video-item_1 .play__circle', '.close', '.overlay', '#frame iframe').render();
-  new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module1 .module__video-item_2 .play__circle', '.close', '.overlay', '#frame iframe').render();
-  new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module2 .module__video-item_3 .play__circle', '.close', '.overlay', '#frame iframe').render();
-  new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module2 .module__video-item_4 .play__circle', '.close', '.overlay', '#frame iframe').render();
-  new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module3 .module__video-item_1 .play__circle', '.close', '.overlay', '#frame iframe').render();
-  new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module3 .module__video-item_2 .play__circle', '.close', '.overlay', '#frame iframe').render();
-  new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module4 .module__video-item_3 .play__circle', '.close', '.overlay', '#frame iframe').render();
-  new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module4 .module__video-item_4 .play__circle', '.close', '.overlay', '#frame iframe').render();
-  new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module5 .module__video-item_1 .play__circle', '.close', '.overlay', '#frame iframe').render();
-  new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module5 .module__video-item_2 .play__circle', '.close', '.overlay', '#frame iframe').render();
-  new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module6 .module__video-item_3 .play__circle', '.close', '.overlay', '#frame iframe').render();
-  new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module4 .module__video-item_4 .play__circle', '.close', '.overlay', '#frame iframe').render();
-  new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module7 .module__video-item_1 .play__circle', '.close', '.overlay', '#frame iframe').render();
-  new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module7 .module__video-item_2 .play__circle', '.close', '.overlay', '#frame iframe').render();
-  new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module8 .module__video-item_3 .play__circle', '.close', '.overlay', '#frame iframe').render();
-  new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"]('#module8 .module__video-item_4 .play__circle', '.close', '.overlay', '#frame iframe').render();
+  var modulesVideoSelectors = ['#module1 .module__video-item_1 .play__circle', '#module1 .module__video-item_2 .play__circle', '#module2 .module__video-item_3 .play__circle', '#module2 .module__video-item_4 .play__circle', '#module3 .module__video-item_1 .play__circle', '#module3 .module__video-item_2 .play__circle', '#module4 .module__video-item_3 .play__circle', '#module4 .module__video-item_4 .play__circle', '#module5 .module__video-item_1 .play__circle', '#module5 .module__video-item_2 .play__circle', '#module6 .module__video-item_3 .play__circle', '#module6 .module__video-item_4 .play__circle', '#module7 .module__video-item_1 .play__circle', '#module7 .module__video-item_2 .play__circle', '#module8 .module__video-item_3 .play__circle', '#module8 .module__video-item_4 .play__circle'];
+  modulesVideoSelectors.forEach(function (moduleSelector) {
+    new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"](moduleSelector, '.close', '.overlay', '#frame iframe').render();
+  });
   new _modules_difference__WEBPACK_IMPORTED_MODULE_2__["default"]('.officerold', '.officerold .officer__card-item', '.officerold .plus').render();
   new _modules_difference__WEBPACK_IMPORTED_MODULE_2__["default"]('.officernew', '.officernew .officer__card-item', '.officernew .plus').render();
   new _modules_form__WEBPACK_IMPORTED_MODULE_3__["default"]('.join__wrapper .btn', '.join__wrapper .form').ready();
   new _modules_form__WEBPACK_IMPORTED_MODULE_3__["default"]('.schedule__form .btn', '.schedule__form .form').ready();
-  new _modules_accordion__WEBPACK_IMPORTED_MODULE_4__["default"]('#module1 .module__info-show', '#module1 .msg').render();
-  new _modules_accordion__WEBPACK_IMPORTED_MODULE_4__["default"]('#module2 .module__info-show', '#module2 .msg').render();
-  new _modules_accordion__WEBPACK_IMPORTED_MODULE_4__["default"]('#module3 .module__info-show', '#module3 .msg').render();
-  new _modules_accordion__WEBPACK_IMPORTED_MODULE_4__["default"]('#module4 .module__info-show', '#module4 .msg').render();
-  new _modules_accordion__WEBPACK_IMPORTED_MODULE_4__["default"]('#module5 .module__info-show', '#module5 .msg').render();
-  new _modules_accordion__WEBPACK_IMPORTED_MODULE_4__["default"]('#module6 .module__info-show', '#module6 .msg').render();
-  new _modules_accordion__WEBPACK_IMPORTED_MODULE_4__["default"]('#module7 .module__info-show', '#module7 .msg').render();
-  new _modules_accordion__WEBPACK_IMPORTED_MODULE_4__["default"]('#module8 .module__info-show', '#module8 .msg').render();
+  var accordionsModuleSelectors = ['#module1 .module__info-show', '#module2 .module__info-show', '#module3 .module__info-show', '#module4 .module__info-show', '#module5 .module__info-show', '#module6 .module__info-show', '#module7 .module__info-show', '#module8 .module__info-show'];
+  accordionsModuleSelectors.forEach(function (accordionSelector, idx) {
+    new _modules_accordion__WEBPACK_IMPORTED_MODULE_4__["default"](accordionSelector, "#module".concat(idx + 1, " .msg")).render();
+  });
 });
 
 /***/ }),
@@ -4535,14 +4519,16 @@ function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var showModal = function showModal(counter) {
-  var modal = document.querySelector('.hanson');
+  try {
+    var modal = document.querySelector('.hanson');
 
-  if (counter === 2) {
-    setTimeout(function () {
-      modal.classList.add('animated', 'fadeInUp');
-      modal.style.display = 'block';
-    }, 3000);
-  }
+    if (counter === 2) {
+      setTimeout(function () {
+        modal.classList.add('animated', 'fadeInUp');
+        modal.style.display = 'block';
+      }, 3000);
+    }
+  } catch (error) {}
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (showModal);
@@ -4706,7 +4692,10 @@ function () {
 
       this.setActiveTitle();
       this.setActiveClass();
-      Object(_modal__WEBPACK_IMPORTED_MODULE_2__["default"])(this.counter);
+
+      try {
+        Object(_modal__WEBPACK_IMPORTED_MODULE_2__["default"])(this.counter);
+      } catch (error) {}
     }
   }, {
     key: "render",
